@@ -1,105 +1,87 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // ========== CARROSSEL ==========
-    const slides = document.querySelectorAll('.slide');
-    const pontos = document.querySelectorAll('.ponto');
-    const btnAnterior = document.querySelector('.anterior');
-    const btnProximo = document.querySelector('.proximo');
-    let slideAtual = 0;
-    const totalSlides = slides.length;
-    let intervaloCarrossel;
-    const tempoTransicao = 10000; // 10 segundos (corrigido)
+  // ========== ACESSIBILIDADE ==========
+  const increaseFont = document.getElementById('increaseFont');
+  const decreaseFont = document.getElementById('decreaseFont');
+  const fontIndicator = document.querySelector('.font-size-indicator');
   
-    // Função para mostrar slide
-    function mostrarSlide(index) {
-      // Esconde todos os slides
-      slides.forEach(slide => {
-        slide.style.opacity = '0';
-        slide.classList.remove('ativo');
+  // Elementos que devem ser afetados (excluindo títulos e elementos específicos)
+  const elementosAjustaveis = [
+      'p', 'a:not(.service-btn)', 'li', 
+      'span:not(.service-btn span):not(.font-size-indicator):not(.accessibility *)',
+      'div:not(.service-btn):not(.mapa-container)'
+  ].join(', ');
+  
+  const elementosParaAjuste = document.querySelectorAll(elementosAjustaveis);
+
+  // Tamanhos de fonte
+  const minFontSize = 12;  // 50%
+  const maxFontSize = 24;  // 200%
+  const defaultFontSize = 16; // 100% (tamanho padrão)
+  let currentFontSize = defaultFontSize;
+
+  // Tamanhos originais dos títulos (em px)
+  const tamanhosOriginais = {
+      'H1': 32,
+      'H2': 28,
+      'H3': 24,
+      'H4': 20,
+      'H5': 18,
+      'H6': 16
+  };
+
+  // Função para atualizar o indicador de acessibilidade
+  function atualizarIndicadorAcessibilidade() {
+      if (fontIndicator) {
+          // Calcula a porcentagem baseada na escala 12px=50% a 24px=200%
+          const porcentagem = Math.round(((currentFontSize - minFontSize) / (maxFontSize - minFontSize)) * 150 + 50);
+          fontIndicator.textContent = `${porcentagem}%`;
+      }
+  }
+
+  // Função para calcular tamanho com acessibilidade
+  function calcularTamanhoAjustado(tagName, fontSize) {
+      const proporcao = currentFontSize / defaultFontSize;
+      return tagName in tamanhosOriginais 
+          ? tamanhosOriginais[tagName] * proporcao
+          : fontSize * proporcao;
+  }
+
+  // Função para aplicar os tamanhos
+  function aplicarTamanhos() {
+      // Ajusta elementos comuns
+      elementosParaAjuste.forEach(elemento => {
+          const estilo = window.getComputedStyle(elemento);
+          const fontSize = parseFloat(estilo.fontSize);
+          elemento.style.fontSize = `${calcularTamanhoAjustado('', fontSize)}px`;
       });
       
-      // Remove a classe ativo de todos os pontos
-      pontos.forEach(ponto => {
-        ponto.classList.remove('ativo');
+      // Ajusta títulos mantendo proporções originais
+      document.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach(titulo => {
+          const tagName = titulo.tagName;
+          titulo.style.fontSize = `${calcularTamanhoAjustado(tagName, 0)}px`;
       });
-  
-      // Atualiza o slide atual
-      slideAtual = (index + totalSlides) % totalSlides;
-      
-      // Mostra o slide atual
-      slides[slideAtual].style.opacity = '1';
-      slides[slideAtual].classList.add('ativo');
-      pontos[slideAtual].classList.add('ativo');
-    }
-  
-    // Função para próximo slide
-    function proximoSlide() {
-      mostrarSlide(slideAtual + 1);
-    }
-  
-    // Inicia o carrossel automático
-    function iniciarCarrossel() {
-      clearInterval(intervaloCarrossel); // Limpa qualquer intervalo existente
-      intervaloCarrossel = setInterval(proximoSlide, tempoTransicao);
-    }
-  
-    // Event listeners
-    btnProximo.addEventListener('click', () => {
-      clearInterval(intervaloCarrossel);
-      proximoSlide();
-      iniciarCarrossel();
-    });
-  
-    btnAnterior.addEventListener('click', () => {
-      clearInterval(intervaloCarrossel);
-      mostrarSlide(slideAtual - 1);
-      iniciarCarrossel();
-    });
-  
-    // Adiciona eventos para os pontos indicadores
-    pontos.forEach((ponto, index) => {
-      ponto.addEventListener('click', () => {
-        clearInterval(intervaloCarrossel);
-        mostrarSlide(index);
-        iniciarCarrossel();
-      });
-    });
-  
-    // Pausa o carrossel quando o mouse está sobre ele
-    const carrossel = document.querySelector('.carrossel');
-    carrossel.addEventListener('mouseenter', () => {
-      clearInterval(intervaloCarrossel);
-    });
-  
-    carrossel.addEventListener('mouseleave', iniciarCarrossel);
-  
-    // ========== ACESSIBILIDADE ==========
-    const increaseFont = document.getElementById('increaseFont');
-    const decreaseFont = document.getElementById('decreaseFont');
-    const html = document.documentElement;
-    const elementosFonte = document.querySelectorAll('.font-adjust');
-  
-    // Tamanhos mínimo e máximo de fonte
-    const minFontSize = 12;
-    const maxFontSize = 24;
-    let currentFontSize = parseInt(getComputedStyle(html).fontSize);
-  
-    increaseFont.addEventListener('click', () => {
-      alterarTamanhoFonte(1);
-    });
-  
-    decreaseFont.addEventListener('click', () => {
-      alterarTamanhoFonte(-1);
-    });
-  
-    function alterarTamanhoFonte(direcao) {
+  }
+
+  // Função para alterar o tamanho da fonte
+  function alterarTamanhoFonte(direcao) {
       currentFontSize += (direcao * 2);
-      
-      // Limita entre os valores mínimo e máximo
       currentFontSize = Math.max(minFontSize, Math.min(maxFontSize, currentFontSize));
-      html.style.setProperty('--base-font-size', `${currentFontSize}px`);
-    }
-  
-    // Inicia o carrossel
-    mostrarSlide(0);
-    iniciarCarrossel();
-  });
+      aplicarTamanhos();
+      atualizarIndicadorAcessibilidade();
+  }
+
+  // Event listeners para os botões de acessibilidade
+  if (increaseFont && decreaseFont) {
+      increaseFont.addEventListener('click', () => {
+          alterarTamanhoFonte(1);
+      });
+
+      decreaseFont.addEventListener('click', () => {
+          alterarTamanhoFonte(-1);
+      });
+  }
+
+  // Inicia o sistema com os valores padrão
+  aplicarTamanhos();
+  atualizarIndicadorAcessibilidade();
+});
