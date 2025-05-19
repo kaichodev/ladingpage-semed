@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solicitação de Pagamento</title>
+  <link rel="icon" href="src/img/logo2.png" type="image/png">
+  <link rel="stylesheet" href="src/styles.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="top-bar" id="topBar">
+    <div class="accessibility">
+      <span>Acessibilidade</span>
+      <button id="decreaseFont" aria-label="Diminuir tamanho da fonte">-A</button>
+      <button id="increaseFont" aria-label="Aumentar tamanho da fonte">+A</button>
+      <span class="font-size-indicator">100%</span>
+    </div>
+
+    <img src="src/img/logopmbcsec-branco.png" alt="Logo da Secretaria Municipal de Educação de Benjamin Constant" class="logo-header">
+
+    <!---========MENU=========-->
+    <nav class="menu" aria-label="Navegação principal">
+      <button class="hamburger-btn" aria-expanded="false" aria-label="Abrir menu principal">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li>
+          <a href="#secretaria">Secretaria</a>
+          <ul class="submenu" aria-label="Submenu Secretaria">
+            <li><a href="#missao">Sobre a Secretaria</a></li>
+            <li><a href="#historico">Planejamento Estratégico</a></li>
+            <li><a href="#equipe">Organograma</a></li>
+            <li><a href="#quem-e-quem">Quem é Quem?</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#educacao">Etapas e Modalidades</a>
+          <ul class="submenu" aria-label="Submenu Educação">
+            <li><a href="#educacao-infantil1">Educação Infantil I</a></li>
+            <li><a href="#educacao-infantil2">Educação Infantil II</a></li>
+            <li><a href="#educacao-infantil3">Educação Infantil III</a></li>
+            <li><a href="#educacao-especial">Educação Especial</a></li>
+            <li><a href="#eja">EJA</a></li>
+            <li><a href="#educacao-integral">Educação Integral</a></li>
+            <li><a href="#educacao-indigena">Educação Indígena</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#noticias">Notícias e Eventos</a>
+          <ul class="submenu" aria-label="Submenu Notícias">
+            <li><a href="#videos">Vídeos</a></li>
+            <li><a href="#fotos">Fotos</a></li>
+            <li><a href="#eventos">Eventos</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#servicos">Serviços</a>
+          <ul class="submenu" aria-label="Submenu Serviços">
+            <li><a href="#calendario">Calendário Escolar</a></li>
+            <li><a href="#identidade-visual">Identidade Visual</a></li>
+            <li><a href="#planos-cargos">Plano e Cargos</a></li>
+            <li><a href="#selecao-concurso">Seleção de Concurso</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#escolas">Escolas da Rede</a>
+          <ul class="submenu" aria-label="Submenu Escolas">
+            <li><a href="#urbanas">Zona Urbana</a></li>
+            <li><a href="#rurais">Zona Rural</a></li>
+            <li><a href="#rurais-indigenas">Zona Rural Indígena</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="login-container payment-container">
+    <div class="login-box payment-box">
+      <img src="src/img/brasaobjc.png" alt="Logo" class="logo-login payment-logo">
+      <h1>Solicitação de Pagamento de Servidor</h1>
+      <form id="paymentForm">
+        <div class="input-group payment-input-group">
+          <label for="escola">Escola:</label>
+          <select id="escola" name="escola" required>
+            <option value="">Selecione a escola</option>
+            <option value="escola1">Escola Municipal João Pessoa</option>
+            <option value="escola2">Escola Municipal Dom José</option>
+            <option value="escola3">Escola Municipal Indígena Tikuna</option>
+            <option value="escola4">Escola Municipal Rural São José</option>
+            <option value="escola5">Escola Municipal Centro Educacional</option>
+          </select>
+        </div>
+        <div class="input-group payment-input-group">
+          <label for="tipoAfastamento">Tipo de afastamento:</label>
+          <select id="tipoAfastamento" name="tipoAfastamento" required>
+            <option value="">Selecione o tipo de afastamento</option>
+            <option value="licenca-maternidade">Licença Maternidade</option>
+            <option value="licenca-saude">Licença por Saúde</option>
+            <option value="licenca-paternidade">Licença Paternidade</option>
+            <option value="afastamento-curso">Afastamento para Curso</option>
+            <option value="outro">Outro</option>
+          </select>
+        </div>
+        <div class="input-group payment-input-group">
+          <label for="nomeTitular">Nome do Titular Afastado:</label>
+          <input type="text" id="nomeTitular" name="nomeTitular" required>
+        </div>
+        <div class="input-group payment-input-group">
+          <label for="nomeSubstituto">Nome do Substituto:</label>
+          <input type="text" id="nomeSubstituto" name="nomeSubstituto" required>
+        </div>
+        <div class="input-group payment-input-group">
+          <label for="inicioSubstituicao">Início da substituição:</label>
+          <input type="date" id="inicioSubstituicao" name="inicioSubstituicao" required>
+        </div>
+        <div class="input-group payment-input-group">
+          <label for="terminoSubstituicao">Término da substituição:</label>
+          <input type="date" id="terminoSubstituicao" name="terminoSubstituicao" required>
+        </div>
+        <div class="input-group payment-input-group">
+          <label for="diasTrabalhados">Quantidade de dias Trabalhados:</label>
+          <input type="number" id="diasTrabalhados" name="diasTrabalhados" required min="1">
+          <span class="error-message payment-error-message">*Considerar somente dias letivos, excluindo sábados, domingos e feriados*</span>
+        </div>
+        <div class="input-group payment-input-group">
+          <label>Documento comprobatório (Se houver):</label>
+          <input type="file" id="documento" name="documento" accept="application/pdf">
+          <span class="error-message payment-error-message">Somente PDF</span>
+        </div>
+        <button type="submit" class="login-btn payment-submit-btn" id="submitBtn">
+          <span class="btn-text">Enviar</span>
+          <span class="btn-spinner"></span>
+        </button>
+      </form>
+      <a href="#" class="forgot-password payment-logout">Logout</a>
+    </div>
+  </div>
+  <script src="pag.js"></script>
+</body>
+</html>

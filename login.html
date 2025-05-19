@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Tela de login da Secretaria Municipal de Educação de Benjamin Constant - SEMED">
+  <title>Login - SEMED Benjamin Constant</title>
+  <link rel="icon" href="src/img/logo2.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="src/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+  <header class="top-bar" id="topBar">
+    <div class="accessibility">
+      <span>Acessibilidade</span>
+      <button id="decreaseFont" aria-label="Diminuir tamanho da fonte">-A</button>
+      <button id="increaseFont" aria-label="Aumentar tamanho da fonte">+A</button>
+      <span class="font-size-indicator">100%</span>
+    </div>
+
+    <img src="src/img/logopmbcsec-branco.png" alt="Logo da Secretaria Municipal de Educação de Benjamin Constant" class="logo-header">
+
+    <!---========MENU=========-->
+    <nav class="menu" aria-label="Navegação principal">
+      <button class="hamburger-btn" aria-expanded="false" aria-label="Abrir menu principal">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li>
+          <a href="#secretaria">Secretaria</a>
+          <ul class="submenu" aria-label="Submenu Secretaria">
+            <li><a href="#missao">Sobre a Secretaria</a></li>
+            <li><a href="#historico">Planejamento Estratégico</a></li>
+            <li><a href="#equipe">Organograma</a></li>
+            <li><a href="#quem-e-quem">Quem é Quem?</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#educacao">Etapas e Modalidades</a>
+          <ul class="submenu" aria-label="Submenu Educação">
+            <li><a href="#educacao-infantil1">Educação Infantil I</a></li>
+            <li><a href="#educacao-infantil2">Educação Infantil II</a></li>
+            <li><a href="#educacao-infantil3">Educação Infantil III</a></li>
+            <li><a href="#educacao-especial">Educação Especial</a></li>
+            <li><a href="#eja">EJA</a></li>
+            <li><a href="#educacao-integral">Educação Integral</a></li>
+            <li><a href="#educacao-indigena">Educação Indígena</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#noticias">Notícias e Eventos</a>
+          <ul class="submenu" aria-label="Submenu Notícias">
+            <li><a href="#videos">Vídeos</a></li>
+            <li><a href="#fotos">Fotos</a></li>
+            <li><a href="#eventos">Eventos</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#servicos">Serviços</a>
+          <ul class="submenu" aria-label="Submenu Serviços">
+            <li><a href="#calendario">Calendário Escolar</a></li>
+            <li><a href="#identidade-visual">Identidade Visual</a></li>
+            <li><a href="#planos-cargos">Plano e Cargos</a></li>
+            <li><a href="#selecao-concurso">Seleção de Concurso</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#escolas">Escolas da Rede</a>
+          <ul class="submenu" aria-label="Submenu Escolas">
+            <li><a href="#urbanas">Zona Urbana</a></li>
+            <li><a href="#rurais">Zona Rural</a></li>
+            <li><a href="#rurais-indigenas">Zona Rural Indígena</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="login-container" aria-label="Tela de login">
+    <!---========LOGIN=========-->
+    <div class="login-box">
+      <img src="src/img/brasaobjc.png" alt="Logo da Secretaria Municipal de Educação de Benjamin Constant" class="logo-login">
+      <h1>Entrar no Sistema</h1>
+      <form id="loginForm" aria-label="Formulário de login">
+        <div class="input-group">
+          <label for="email">E-mail</label>
+          <div class="input-wrapper">
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              placeholder="Digite seu e-mail" 
+              required 
+              aria-describedby="email-error"
+            >
+          </div>
+          <span id="email-error" class="error-message" role="alert"></span>
+        </div>
+        <div class="input-group">
+          <label for="password">Senha</label>
+          <div class="input-wrapper">
+            <input 
+              type="password" 
+              id="password" 
+              name="password" 
+              placeholder="Digite sua senha" 
+              required 
+              aria-describedby="password-error"
+            >
+            <button type="button" class="toggle-password" aria-label="Mostrar ou ocultar senha">
+              <i class="fas fa-eye" aria-hidden="true"></i>
+            </button>
+          </div>
+          <span id="password-error" class="error-message" role="alert"></span>
+        </div>
+        <a href="#esqueceu-senha" class="forgot-password">Esqueceu sua senha?</a>
+        <button type="submit" class="login-btn" aria-label="Entrar no sistema">
+          <span class="btn-text">Entrar</span>
+          <i class="fas fa-spinner fa-spin btn-spinner" aria-hidden="true"></i>
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Seção de informações e redes sociais -->
+  <div class="login-info">
+    <p>Conheça mais sobre o i-Educar e a Portabilis, acesse nosso <a href="#" class="blog-link">blog</a></p>
+    <p>Siga-nos nas redes sociais:</p>
+    <div class="social-icons">
+      <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    </div>
+  </div>
+
+  <script src="src/login.js"></script>
+</body>
+</html>
