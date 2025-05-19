@@ -1,0 +1,269 @@
+/* ===== VARIÁVEIS ===== */
+:root {
+  --base-font-size: 16px;
+  --verde-principal: #2e7d32;
+  --verde-escuro: #1B5E20;
+  --verde-claro: #4CAF50;
+  --branco: #ffffff;
+  --cinza-claro: #f5f5f5;
+  --cinza-medio: #e0e0e0;
+  --cinza-escuro: #333333;
+  --sombra: 0 2px 5px rgba(0,0,0,0.1);
+  --transicao: all 0.3s ease;
+}
+
+/* ===== RESET E ESTILOS BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: var(--base-font-size);
+  line-height: 1.6;
+  color: var(--cinza-escuro);
+  background-color: var(--cinza-claro);
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== CARROSSEL DE APRESENTAÇÃO ===== */
+.presentation-section {
+  padding: 80px 5%;
+  background: var(--branco);
+  text-align: center;
+}
+
+.presentation-section h1 {
+  color: var(--verde-principal);
+  font-size: calc(var(--base-font-size) * 2);
+  margin-bottom: 40px;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden; /* Esconde os cards fora da área visível */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  position: relative;
+  width: fit-content; /* Permite que os cards se movam lateralmente */
+  transition: transform 0.3s ease; /* Transição suave para movimento */
+}
+
+.carousel-card {
+  flex: 0 0 300px;
+  background: var(--branco);
+  border-radius: 12px;
+  box-shadow: var(--sombra);
+  overflow: hidden;
+  position: relative;
+  transition: var(--transicao);
+}
+
+.carousel-card.expanded {
+  flex: 0 0 500px; /* Aumenta o tamanho ao expandir */
+  z-index: 10; /* Fica acima dos outros, mas não bloqueia rolagem */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.carousel-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 3px solid var(--verde-claro);
+}
+
+.carousel-card.expanded img {
+  height: 250px; /* Aumenta a foto ao expandir */
+}
+
+.card-content {
+  padding: 15px;
+  text-align: left;
+  background: linear-gradient(to bottom, var(--cinza-claro), var(--branco));
+}
+
+.card-content h3 {
+  color: var(--verde-principal);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  font-size: 0.9rem;
+  color: var(--cinza-escuro);
+  line-height: 1.4;
+}
+
+/* Estilo para o conteúdo expandido */
+.carousel-card .expanded-content {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  box-sizing: border-box;
+  pointer-events: none; /* Evita que o conteúdo expandido bloqueie eventos */
+}
+
+.carousel-card.expanded .expanded-content {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.expanded-content .map-container {
+  flex: 0 0 200px;
+  height: 200px;
+  border: 2px solid var(--verde-claro);
+}
+
+.expanded-content .description {
+  flex: 1;
+  padding-left: 20px;
+  color: var(--cinza-escuro);
+}
+
+.expanded-content .description h4 {
+  color: var(--verde-principal);
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.expanded-content .description p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+  .presentation-section {
+    padding: 60px 3%;
+  }
+
+  .presentation-section h1 {
+    font-size: calc(var(--base-font-size) * 1.5);
+  }
+
+  .carousel-card {
+    flex: 0 0 250px;
+  }
+
+  .carousel-card.expanded {
+    flex: 0 0 400px;
+  }
+
+  .carousel-card img {
+    height: 150px;
+  }
+
+  .carousel-card.expanded img {
+    height: 200px;
+  }
+
+  .expanded-content .map-container {
+    flex: 0 0 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .presentation-section {
+    padding: 40px 2%;
+  }
+
+  .presentation-section h1 {
+    font-size: calc(var(--base-font-size) * 1.2);
+  }
+
+  .carousel-card {
+    flex: 0 0 200px;
+  }
+
+  .carousel-card.expanded {
+    flex: 0 0 300px;
+  }
+
+  .carousel-card img {
+    height: 120px;
+  }
+
+  .carousel-card.expanded img {
+    height: 150px;
+  }
+
+  .expanded-content {
+    flex-direction: column;
+  }
+
+  .expanded-content .map-container {
+    flex: 0 0 100%;
+    height: 150px;
+    margin-bottom: 20px;
+  }
+
+  .expanded-content .description {
+    padding-left: 0;
+  }
+}
+
+/* ===== ACESSIBILIDADE - ALTO CONTRASTE ===== */
+@media (prefers-contrast: high) {
+  :root {
+    --verde-principal: #005500;
+    --verde-escuro: #003300;
+    --verde-claro: #007700;
+    --branco: #ffffff;
+    --cinza-claro: #ffffff;
+    --cinza-escuro: #000000;
+  }
+
+  body {
+    background: var(--branco);
+    color: var(--cinza-escuro);
+  }
+
+  .carousel-card {
+    border: 2px solid var(--cinza-escuro);
+  }
+
+  .card-content {
+    background: var(--branco);
+  }
+
+  .expanded-content .map-container {
+    border: 2px solid var(--cinza-escuro);
+  }
+}
+
+/* Reduzir movimento para acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track {
+    transition: none;
+  }
+
+  .carousel-card {
+    transition: none;
+  }
+}
