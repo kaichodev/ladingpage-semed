@@ -2,11 +2,14 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Secretaria Municipal de Educação de Benjamin Constant - SEMED. Promovendo educação de qualidade para todos.">
   <title>Secretaria Municipal de Educação SEMED</title>
   <link rel="icon" href="src/img/logo2.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="src/styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
   <header class="top-bar" id="topBar">
@@ -16,184 +19,188 @@
       <button id="increaseFont" aria-label="Aumentar tamanho da fonte">+A</button>
       <span class="font-size-indicator">100%</span>
     </div>
-    <img src="src/img/PMBCEdu.png">
+
+    <img src="src/img/PMBCEdu.png" alt="Logo da Secretaria Municipal de Educação de Benjamin Constant" class="logo-header">
 
     <nav class="menu" aria-label="Navegação principal">
+      <button class="hamburger-btn" aria-expanded="false" aria-label="Abrir menu principal">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
       <ul>
         <li><a href="#inicio">Início</a></li>
         <li>
-          <a href="#Secretaria">Secretaria</a>
-          <ul class="submenu">
+          <a href="#secretaria">Secretaria</a>
+          <ul class="submenu" aria-label="Submenu Secretaria">
             <li><a href="#missao">Sobre a Secretaria</a></li>
             <li><a href="#historico">Planejamento Estratégico</a></li>
             <li><a href="#equipe">Organograma</a></li>
-            <li><a href="#historico">Quem é Quem?</a></li>
+            <li><a href="#quem-e-quem">Quem é Quem?</a></li>
           </ul>
         </li>
         <li>
           <a href="#educacao">Etapas e Modalidades</a>
-          <ul class="submenu">
-            <li><a href="#projetos">Educação Infantil I</a></li>
-            <li><a href="#projetos">Educação Infantil II</a></li>
-            <li><a href="#projetos">Educação Infantil III</a></li>
-            <li><a href="#projetos">Educação Especial</a></li>
-            <li><a href="#projetos">Eja</a></li>
-            <li><a href="#projetos">Educação Integral</a></li>
-            <li><a href="#estatisticas">Educação Indigena</a></li>
+          <ul class="submenu" aria-label="Submenu Educação">
+            <li><a href="#educacao-infantil1">Educação Infantil I</a></li>
+            <li><a href="#educacao-infantil2">Educação Infantil II</a></li>
+            <li><a href="#educacao-infantil3">Educação Infantil III</a></li>
+            <li><a href="#educacao-especial">Educação Especial</a></li>
+            <li><a href="#eja">EJA</a></li>
+            <li><a href="#educacao-integral">Educação Integral</a></li>
+            <li><a href="#educacao-indigena">Educação Indígena</a></li>
           </ul>
         </li>
         <li>
-          <a href="#noticias">Noticias e Eventos</a>
-          <ul class="submenu">
-            <li><a href="#projetos">Videos</a></li>
-            <li><a href="#projetos">Fotos</a></li>
-            <li><a href="#projetos">Eventos</a></li>
+          <a href="#noticias">Notícias e Eventos</a>
+          <ul class="submenu" aria-label="Submenu Notícias">
+            <li><a href="#videos">Vídeos</a></li>
+            <li><a href="#fotos">Fotos</a></li>
+            <li><a href="#eventos">Eventos</a></li>
           </ul>
         </li>
         <li>
           <a href="#servicos">Serviços</a>
-          <ul class="submenu">
-            <li><a href="#matricula">Calendario Escolar</a></li>
-            <li><a href="#documentos">Identidade Visual</a></li>
-            <li><a href="#transporte">Plano e Cargos</a></li>
-            <li><a href="#transporte">Seleção de Consurso</a></li>
+          <ul class="submenu" aria-label="Submenu Serviços">
+            <li><a href="#calendario">Calendário Escolar</a></li>
+            <li><a href="#identidade-visual">Identidade Visual</a></li>
+            <li><a href="#planos-cargos">Plano e Cargos</a></li>
+            <li><a href="#selecao-concurso">Seleção de Concurso</a></li>
           </ul>
         </li>
         <li>
           <a href="#escolas">Escolas da Rede</a>
-          <ul class="submenu">
+          <ul class="submenu" aria-label="Submenu Escolas">
             <li><a href="#urbanas">Zona Urbana</a></li>
             <li><a href="#rurais">Zona Rural</a></li>
-            <li><a href="#rurais">Zona Rural Indigena</a></li>
+            <li><a href="#rurais-indigenas">Zona Rural Indígena</a></li>
           </ul>
         </li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <section id="inicio" class="hero">
+  <main id="main-content">
+    <section id="inicio" class="hero" aria-label="Carrossel de imagens">
       <div class="carrossel">
         <div class="slides-container">
-          <div class="slide ativo">
-            <img src="src/img/carrossel.png" alt="Centro de Educação">
+          <div class="slide ativo" aria-hidden="false">
+            <img src="src/img/carrossel.png" alt="Centro de Educação Integral Cosme e Jean">
             <div class="info-bar">
-              <h3 class="font-adjust">Centro de Educação Integral Cosme e Jean</h3>
-              <p class="font-adjust">Inscrições abertas para turmas de 2024</p>
+              <h3>Centro de Educação Integral Cosme e Jean</h3>
+              <p>Inscrições abertas para turmas de 2024</p>
             </div>
           </div>
-          <div class="slide">
-            <img src="src/img/carrossel2.png" alt="Atividades educacionais">
+          <div class="slide" aria-hidden="true">
+            <img src="src/img/carrossel2.png" alt="Equipe Semed 2024">
             <div class="info-bar">
-              <h3 class="font-adjust">Equipe Semed 2024</h3>
-              <p class="font-adjust">Registro Oficial da Equipe de 2024 da Secretaria de Educação</p>
+              <h3>Equipe Semed 2024</h3>
+              <p>Registro Oficial da Equipe de 2024 da Secretaria de Educação</p>
             </div>
           </div>
-          <div class="slide">
-            <img src="src/img/carrossel3.png" alt="Eventos culturais">
+          <div class="slide" aria-hidden="true">
+            <img src="src/img/carrossel3.png" alt="Creche Municipal Professora Maria Miosotes Monteiro Machado">
             <div class="info-bar">
-              <h3 class="font-adjust">Creche Municipal Professora Maria Miosotes Monteiro Machado</h3>
-              <p class="font-adjust">Venha fazer parte da nossa rede de ensino</p>
+              <h3>Creche Municipal Professora Maria Miosotes Monteiro Machado</h3>
+              <p>Venha fazer parte da nossa rede de ensino</p>
             </div>
           </div>
-          <div class="slide">
-            <img src="src/img/carrossel4.png" alt="Infraestrutura">
+          <div class="slide" aria-hidden="true">
+            <img src="src/img/carrossel4.png" alt="Acolhida Servidores Semed">
             <div class="info-bar">
-              <h3 class="font-adjust">Acolhida Servidores Semed</h3>
-              <p class="font-adjust">Primeiro dia de Gestão com um Acolhida para os Novos Servidores do Ano de 2025</p>
+              <h3>Acolhida Servidores Semed</h3>
+              <p>Primeiro dia de Gestão com um Acolhida para os Novos Servidores do Ano de 2025</p>
             </div>
           </div>
-          <div class="slide">
-            <img src="src/img/carrossel5.png" alt="Equipe docente">
+          <div class="slide" aria-hidden="true">
+            <img src="src/img/carrossel5.png" alt="Dia de Conscientização Do Espectro Autista">
             <div class="info-bar">
-              <h3 class="font-adjust">Dia de Conscientização Do Espectro Autista</h3>
-              <p class="font-adjust">Dia de se conscientizar sobre o espectro autista</p>
+              <h3>Dia de Conscientização Do Espectro Autista</h3>
+              <p>Dia de se conscientizar sobre o espectro autista</p>
             </div>
           </div>
         </div>
-      
-        <button class="controle anterior" aria-label="Slide anterior">❮</button>
-        <button class="controle proximo" aria-label="Próximo slide">❯</button>
-      
-        <div class="indicadores">
-          <span class="ponto ativo" aria-label="Ir para slide 1"></span>
-          <span class="ponto" aria-label="Ir para slide 2"></span>
-          <span class="ponto" aria-label="Ir para slide 3"></span>
-          <span class="ponto" aria-label="Ir para slide 4"></span>
-          <span class="ponto" aria-label="Ir para slide 5"></span>
+        <div class="carrossel-indicators">
+          <button class="ponto ativo" aria-label="Ir para slide 1"></button>
+          <button class="ponto" aria-label="Ir para slide 2"></button>
+          <button class="ponto" aria-label="Ir para slide 3"></button>
+          <button class="ponto" aria-label="Ir para slide 4"></button>
+          <button class="ponto" aria-label="Ir para slide 5"></button>
         </div>
       </div>
     </section>
 
-    <section id="servicos" class="services">
-      <h2 class="font-adjust">SERVIÇOS</h2>
-      <div class="grid">
-        <a href="https://semedbjc.am.gov.br/AvaliacaoJornada/" class="service-btn font-adjust" target="_blank">
-          <i class="fas fa-question-circle"></i> QUESTIONÁRIOS
-        </a>
-        <a href="https://semedbjc.am.gov.br/E-pag/" class="service-btn font-adjust" target="_blank">
-          <i class="fas fa-money-bill-wave"></i> E-PAG
-        </a>
-        <a href="https://www.fnde.gov.br/pddeinfo/pddeinfo/escola/consultar" class="service-btn font-adjust" target="_blank">
-          <i class="fas fa-info-circle"></i> PDOE INFO
-        </a>
-        <a href="https://www.fnde.gov.br/sigpc/login.seam" class="service-btn font-adjust" target="_blank">
-          <i class="fas fa-laptop"></i> SIGPC
-        </a>
-        <a href="https://semedbjc.am.gov.br/consulta/ponto/" class="service-btn font-adjust" target="_blank">
-          <i class="fas fa-clock"></i> PONTO ELETRÔNICO
-        </a>
-        <a href="https://benjaminconstant.ieducar.com.br/login" class="service-btn font-adjust" target="_blank">
-          <i class="fas fa-graduation-cap"></i> I-EDUCAR
-        </a>
-        <a href="https://benjaminconstant-am.portabilis.com.br/usuarios/logar" class="service-btn font-adjust" target="_blank">
-          <i class="fas fa-book"></i> I-DIÁRIO
-        </a>
-        <a href="https://semedbjc.am.gov.br/certificado/fordimeG9/" class="service-btn font-adjust" target="_blank">
-          <i class="fas fa-car"></i> FORDIMEGO
-        </a>
-        <a href="https://semedbjc.am.gov.br/pss2025/" class="service-btn font-adjust" target="_blank">
-          <i class="fas fa-file-alt"></i> PSS
-        </a>
-        <a href="https://semedbjc.am.gov.br/SGCE.php" class="service-btn font-adjust" target="_blank">
-          <i class="fas fa-certificate"></i> CERTIFICADO
-        </a>
-        <a href="https://www.semedbjc.am.gov.br/index.php#" class="service-btn font-adjust" target="_blank">
-          <i class="fas fa-user-edit"></i> RECADASTRO
-        </a>
-        <a href="https://portal.diretoriodigital.inf.br/login" class="service-btn font-adjust" target="_blank">
-          <i class="fas fa-file-invoice-dollar"></i> CONTRACHEQUE
-        </a>
-        <a href="https://semedbjc.am.gov.br/requerimento/" class="service-btn font-adjust" target="_blank">
-          <i class="fas fa-calendar-alt"></i> E-FOLGA
-        </a>
-        <a href="https://presenca.mec.gov.br/seb/#" class="service-btn font-adjust" target="_blank">
-          <i class="fas fa-user-check"></i> PRESENÇA
-        </a>
-        <a href="https://autoatendimento.bb.com.br/apf-apj-acesso/?0=[&1=o&2=b&3=j&4=e&5=c&6=t&7=%20&8=O&9=b&10=j&11=e&12=c&13=t&14=]&pk_vid=551dc3e96a7d6761166438303866a4a3&v=2.55.1&t=1#/transacao/modulo-seguranca-ajuda/0" class="service-btn font-adjust" target="_blank">
-          <i class="fas fa-piggy-bank"></i> BB ÁGIL
-        </a>
-        <a href="https://censobasico.inep.gov.br/censobasico/#/" class="service-btn font-adjust" target="_blank">
-          <i class="fas fa-school"></i> EDUCACENSO
-        </a>
-        <a href="https://simec.mec.gov.br/login.php" class="service-btn font-adjust" target="_blank">
-          <i class="fas fa-database"></i> SIMEC
-        </a>
-        <a href="https://pddeinterativo.mec.gov.br/" class="service-btn font-adjust" target="_blank">
-          <i class="fas fa-chart-line"></i> PDOE INTERATIVO
-        </a>
-        <a href="https://www.semedbjc.am.gov.br/videos.php" class="service-btn font-adjust" target="_blank">
-          <i class="fas fa-video"></i> VÍDEOS
-        </a>
-        <a href="https://www.semedbjc.am.gov.br/post.php" class="service-btn font-adjust" target="_blank">
-          <i class="fas fa-newspaper"></i> NOTÍCIAS
-        </a>
-      </div>
-    </section>
-
-    <section id="informacoes" class="secretaria-info">
+    <section id="servicos" class="services" aria-label="Serviços da Secretaria">
       <div class="container">
-        <h2 class="font-adjust">INFORMAÇÕES</h2>
+        <h2>SERVIÇOS</h2>
+        <div class="grid">
+          <a href="https://semedbjc.am.gov.br/AvaliacaoJornada/" class="service-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-question-circle" aria-hidden="true"></i> QUESTIONÁRIOS
+          </a>
+          <a href="https://semedbjc.am.gov.br/E-pag/" class="service-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-money-bill-wave" aria-hidden="true"></i> E-PAG
+          </a>
+          <a href="https://www.fnde.gov.br/p recipes/pddeinfo/escola/consultar" class="service-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-info-circle" aria-hidden="true"></i> PDOE INFO
+          </a>
+          <a href="https://www.fnde.gov.br/sigpc/login.seam" class="service-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-laptop" aria-hidden="true"></i> SIGPC
+          </a>
+          <a href="https://semedbjc.am.gov.br/consulta/ponto/" class="service-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-clock" aria-hidden="true"></i> PONTO ELETRÔNICO
+          </a>
+          <a href="https://benjaminconstant.ieducar.com.br/login" class="service-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-graduation-cap" aria-hidden="true"></i> I-EDUCAR
+          </a>
+          <a href="https://benjaminconstant-am.portabilis.com.br/usuarios/logar" class="service-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-book" aria-hidden="true"></i> I-DIÁRIO
+          </a>
+          <a href="https://semedbjc.am.gov.br/certificado/fordimeG9/" class="service-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-car" aria-hidden="true"></i> FORDIMEGO
+          </a>
+          <a href="https://semedbjc.am.gov.br/pss2025/" class="service-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-file-alt" aria-hidden="true"></i> PSS
+          </a>
+          <a href="https://semedbjc.am.gov.br/SGCE.php" class="service-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-certificate" aria-hidden="true"></i> CERTIFICADO
+          </a>
+          <a href="https://www.semedbjc.am.gov.br/index.php#" class="service-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-user-edit" aria-hidden="true"></i> RECADASTRO
+          </a>
+          <a href="https://portal.diretoriodigital.inf.br/login" class="service-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-file-invoice-dollar" aria-hidden="true"></i> CONTRACHEQUE
+          </a>
+          <a href="https://semedbjc.am.gov.br/requerimento/" class="service-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-calendar-alt" aria-hidden="true"></i> E-FOLGA
+          </a>
+          <a href="https://presenca.mec.gov.br/seb/#" class="service-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-user-check" aria-hidden="true"></i> PRESENÇA
+          </a>
+          <a href="https://autoatendimento.bb.com.br/apf-apj-acesso/?0=[&1=o&2=b&3=j&4=e&5=c&6=t&7=%20&8=O&9=b&10=j&11=e&12=c&13=t&14=]&pk_vid=551dc3e96a7d6761166438303866a4a3&v=2.55.1&t=1#/transacao/modulo-seguranca-ajuda/0" class="service-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-piggy-bank" aria-hidden="true"></i> BB ÁGIL
+          </a>
+          <a href="https://censobasico.inep.gov.br/censobasico/#/" class="service-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-school" aria-hidden="true"></i> EDUCACENSO
+          </a>
+          <a href="https://simec.mec.gov.br/login.php" class="service-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-database" aria-hidden="true"></i> SIMEC
+          </a>
+          <a href="https://pddeinterativo.mec.gov.br/" class="service-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-chart-line" aria-hidden="true"></i> PDOE INTERATIVO
+          </a>
+          <a href="https://www.semedbjc.am.gov.br/videos.php" class="service-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-video" aria-hidden="true"></i> VÍDEOS
+          </a>
+          <a href="https://www.semedbjc.am.gov.br/post.php" class="service-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-newspaper" aria-hidden="true"></i> NOTÍCIAS
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="informacoes" class="secretaria-info" aria-label="Informações da Secretaria">
+      <div class="container">
+        <h2>INFORMAÇÕES</h2>
         <div class="info-content">
           <div class="mapa-container">
             <iframe 
@@ -203,7 +210,8 @@
               style="border:0;" 
               allowfullscreen="" 
               loading="lazy"
-              title="Localização oficial da SEMED Benjamin Constant">
+              title="Localização oficial da SEMED Benjamin Constant"
+              aria-label="Mapa da localização da Secretaria">
             </iframe>
           </div>
           <div class="texto-info">
@@ -211,39 +219,44 @@
               <p>A Secretaria Municipal de Educação de Benjamin Constant (SEMED) é responsável pela gestão das políticas educacionais do município, promovendo educação de qualidade para todos os cidadãos benjaminenses.</p>
             </div>
             <div class="info-block">
-              <h3><i class="fas fa-map-marker-alt"></i> ENDEREÇO</h3>
+              <h3><i class="fas fa-map-marker-alt" aria-hidden="true"></i> ENDEREÇO</h3>
               <p>Rua Padre Pedro do Congresso, Centro<br>
               Benjamin Constant - AM<br>
               CEP: 69630-000</p>
             </div>
             <div class="info-block">
-              <h3><i class="fas fa-clock"></i> HORÁRIO DE ATENDIMENTO</h3>
+              <h3><i class="fas fa-clock" aria-hidden="true"></i> HORÁRIO DE ATENDIMENTO</h3>
               <p>Segunda a Sexta-feira<br>
               7:30h às 13:30h</p>
             </div>
             <div class="info-block">
-              <h3><i class="fas fa-phone"></i> CONTATOS</h3>
-              <p><strong>Telefone:</strong> (97) 3415-1234<br>
-              <strong>E-mail:</strong> semed@benjaminconstant.am.gov.br</p>
+              <h3><i class="fas fa-phone" aria-hidden="true"></i> CONTATOS</h3>
+              <p><strong>Telefone:</strong> <a href="tel:+97934151234">(97) 3415-1234</a><br>
+              <strong>E-mail:</strong> <a href="mailto:semed@benjaminconstant.am.gov.br">semed@benjaminconstant.am.gov.br</a></p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="social">
-      <h2 class="font-adjust">REDES SOCIAIS</h2>
-      <div class="icons">
-        <a href="https://www.youtube.com/@Semedbenjaminconstant" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-        <a href="https://www.instagram.com/semedbenjaminconstant?igsh=YTgycnY1eGl2ZHZx" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.facebook.com/share/1BeyJ98RyR/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+    <section class="social" aria-label="Redes sociais">
+      <div class="container">
+        <h2>REDES SOCIAIS</h2>
+        <div class="icons">
+          <a href="https://www.youtube.com/@Semedbenjaminconstant" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.instagram.com/semedbenjaminconstant?igsh=YTgycnY1eGl2ZHZx" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/share/1BeyJ98RyR/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <img src="src/img/Logosemed1.png">
-    <p class="font-adjust">© 2025 Secretaria Municipal de Educação (SEMED) - Prefeitura Municipal de Benjamin Constant. Todos os direitos reservados</p>
+  <footer aria-label="Rodapé">
+    <div class="container">
+      <img src="src/img/Logosemed1.png" alt="Logo SEMED Benjamin Constant">
+      <p>© 2025 Secretaria Municipal de Educação (SEMED) - Prefeitura Municipal de Benjamin Constant. Todos os direitos reservados</p>
+      <p><a href="#politica-privacidade">Política de Privacidade</a> | <a href="#termos-uso">Termos de Uso</a></p>
+    </div>
   </footer>
 
   <script src="src/script.js"></script>
